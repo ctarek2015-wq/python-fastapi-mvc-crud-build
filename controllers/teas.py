@@ -17,3 +17,10 @@ def get_single_tea(tea_id: int):
             return tea
     # If tea with the given ID is not found
     raise HTTPException(status_code=404, detail="Tea not found")
+
+
+@router.post("/teas")
+def create_tea(tea: dict):
+    # Create a new tea
+    teas_db["teas"].append(tea)
+    return tea
